@@ -42,3 +42,5 @@ environment.
 * [Official Docker Image for Redis Server](https://hub.docker.com/_/redis)
 * [RedisInsight Documentation](https://developer.redis.com/explore/redisinsight/)
 * [Redis Documentation: An introduction to Redis data types and abstractions](https://redis.io/topics/data-types-intro)
+* [Redis Server Source Code](https://github.com/redis/redis)
+* [PhpRedis Extension](https://github.com/phpredis/phpredis)

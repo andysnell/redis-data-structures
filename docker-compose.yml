@@ -1,7 +1,7 @@
 version: "3.9"
 services:
-  php:
-    container_name: php
+  app:
+    container_name: app
     image: wickedbyte/talks-redis-data-structures
     build:
       context: .
@@ -9,25 +9,25 @@ services:
       - ./:/app:delegated
       - composer:/root/.composer/cache:delegated
     depends_on:
-      - redis
+      - redis-server
 
-  redis:
-    container_name: redis
+  redis-server:
+    container_name: redis-server
     image: redis
     volumes:
       - redis:/data:delegated
     ports:
       - "${DOCKER_HOST_REDIS_PORT:-6379}:6379"
 
-  redisinsight:
-    container_name: redisinsight
+  redis-insight:
+    container_name: redis-insight
     image: redislabs/redisinsight
     volumes:
       - redisinsight:/db:delegated
     ports:
       - "${DOCKER_HOST_REDISINSIGHT_PORT:-8001}:8001"
     depends_on:
-      - redis
+      - redis-server
 
 volumes:
   redis:

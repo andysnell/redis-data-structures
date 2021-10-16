@@ -11,24 +11,35 @@ rate limiting, creating distributed locks, or efficiently checking membership in
 a massive set of data.
 
 ## Latest Slides
+
 [![More Than Just a Cache: Redis Data Structures](assets/slide-deck.png)](https://wkdb.yt/redis-slides)
-**Slide Deck Link:** [https://wkdb.yt/redis-slides](https://wkdb.yt/redis-slides)
+**Slide Deck
+Link:** [https://wkdb.yt/redis-slides](https://wkdb.yt/redis-slides)
 
-## Running Code Examples
+## Running Code Examples with PHPUnit
 
-Install the appropriate version of [Docker](https://docs.docker.com/get-docker/)
-and [Docker Compose](https://docs.docker.com/compose/install/) for your working
-environment.
+Classes for use case examples located in the "src/Examples" directory with
+corresponding unit tests in "tests/Examples". Additional tests covering basic
+data structure functionality are located in "tests/Structures". All the tests
+can be run with PHPUnit, through the included Docker Compose application.
 
-### Starting the Docker Compose Application
+1. Start the Docker Compose[^1] application with `docker-compose up -d`
+2. Run `docker-compose run --rm app composer install` to install vendor
+   dependencies
+3. Run the testsuite with `docker-compose run --rm app vendor/bin/phpunit`
+4. All tests should pass.
 
-`docker-compose up -d`
+## Accessing RedisInsight
 
-### Accessing RedisInsight
+The Docker Compose application also includes the RedisInsight desktop manager
+for Redis. When the application is running, the GUI is served on port 8001 of
+your localhost machine.
 
-1. Navigate to localhost:8001
-2. Review and agree to the license terms
-3. Add a new Redis Database with hostname `redis`, port `6379`, and your choice of name.
+1. Start the Docker Compose[^1] application with `docker-compose up -d`
+2. Navigate to localhost:8001 in your web browser
+3. Review and agree to the license terms.
+4. Add a new Redis Database with hostname `redis`, port `6379`, and your choice
+   of name.
 
 ![Adding a New Database to RedisInsight](assets/adding-redis-database-to-redisinsight.png)
 
@@ -42,5 +53,11 @@ environment.
 * [Official Docker Image for Redis Server](https://hub.docker.com/_/redis)
 * [RedisInsight Documentation](https://developer.redis.com/explore/redisinsight/)
 * [Redis Documentation: An introduction to Redis data types and abstractions](https://redis.io/topics/data-types-intro)
+* [Redlock Distributed Lock Algorithm](https://redis.io/topics/distlock)
 * [Redis Server Source Code](https://github.com/redis/redis)
 * [PhpRedis Extension](https://github.com/phpredis/phpredis)
+
+[^1]: If you do not already have it installed, you will need to install the
+appropriate version of [Docker](https://docs.docker.com/get-docker/)
+and [Docker Compose](https://docs.docker.com/compose/install/) for your working
+environment. 

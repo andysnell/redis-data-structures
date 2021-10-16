@@ -38,7 +38,7 @@ your localhost machine.
 1. Start the Docker Compose[^1] application with `docker-compose up -d`
 2. Navigate to localhost:8001 in your web browser
 3. Review and agree to the license terms.
-4. Add a new Redis Database with hostname `redis`, port `6379`, and your choice
+4. Add a new Redis Database with hostname `redis-server`, port `6379`, and your choice
    of name.
 
 ![Adding a New Database to RedisInsight](assets/adding-redis-database-to-redisinsight.png)
